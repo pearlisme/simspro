@@ -3,3 +3,7 @@ spring:
     console:
       path: /h2
       enabled: true
+  mvc:
+    view:
+      prefix: /templates/
+      suffix: .html
