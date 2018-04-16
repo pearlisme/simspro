@@ -1,29 +1,28 @@
 package com.spring.sims.simspro.controller;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-@Controller
+@RestController
+@RequestMapping("/api/v1/")
 public class HomeController {
 
-    @RequestMapping("/")
+    @RequestMapping("login")
     public String login() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("login");
         return "login";
     }
 
-    @RequestMapping(value = "/index")
+    @RequestMapping(value = "index")
     public String goHome() {
 
         return "login";
     }
 
 
-    @RequestMapping(value = "/help")
+    @RequestMapping(value = "help")
     public String getHelp() {
 
         return "Helpline number +001 ";
