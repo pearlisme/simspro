@@ -12,27 +12,6 @@ import java.util.List;
 
 
 @Service
-@RequestMapping("/student")
 public class StudentService {
-    @Autowired
-    StudentRepository studentRepository;
-
-    @RequestMapping(value = "/create",method = RequestMethod.GET)
-    public void create(Student student){
-        studentRepository.save(student);
-    }
-
-    @RequestMapping(value = "/find/${id}",method = RequestMethod.GET)
-    public List<Student> find(@PathVariable Long id){
-        studentRepository.findAllById(id);
-    }
-
-    @RequestMapping(value = "/delete/${id}",method = RequestMethod.GET)
-    public void delete(@PathVariable Long id){
-        studentRepository.findAllById(id);
-    }
-
-
-
 
 }

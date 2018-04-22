@@ -1,0 +1,18 @@
+<div class="container pad-top">
+  <a ui-sref="newStudent" class="btn-primary btn-lg nodecoration">Add New student</a>
+  <table class="table shipwrecktable">
+      <tr>
+          <td><h3>All Student</h3></td>
+          <td></td>
+      </tr>
+      <tr ng-repeat="student in students">
+          <td>{{student.id}}</td>
+          <td>{{student.name}}</td>
+          <td>{{student.mobile}}</td>
+          <td>
+              <a class="btn btn-primary" ui-sref="viewShipwreck({id:student.id})">View</a>
+              <a class="btn btn-danger"  ng-click="deleteStudent(student)">Delete</a>
+          </td>
+      </tr>
+  </table>
+</div>

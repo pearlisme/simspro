@@ -1,45 +1,57 @@
 package com.spring.sims.simspro.model;
 
 public class Student {
-    private long studentId;
-    private String studentName;
-    private String deptName;
+    private long Id;
+    private String Name;
+    private String department;
     private int mobile;
     private String address;
 
     @Override
     public String toString() {
         return "Student{" +
-                "studentId=" + studentId +
-                ", studentName='" + studentName + '\'' +
-                ", deptName='" + deptName + '\'' +
+                "Id=" + Id +
+                ", Name='" + Name + '\'' +
+                ", department='" + department + '\'' +
                 ", mobile=" + mobile +
                 ", address='" + address + '\'' +
                 '}';
     }
 
-    public long getStudentId() {
-        return studentId;
+
+    public Student(long Id, String Name, String department, int mobile, String address) {
+        this.Id = Id;
+        this.Name = Name;
+        this.department = department;
+        this.mobile = mobile;
+        this.address = address;
     }
 
-    public void setStudentId(long studentId) {
-        this.studentId = studentId;
+    public Student() {
     }
 
-    public String getStudentName() {
-        return studentName;
+    public long getId() {
+        return Id;
     }
 
-    public void setStudentName(String studentName) {
-        this.studentName = studentName;
+    public void setId(long id) {
+        this.Id = id;
     }
 
-    public String getDeptName() {
-        return deptName;
+    public String getName() {
+        return Name;
     }
 
-    public void setDeptName(String deptName) {
-        this.deptName = deptName;
+    public void setName(String name) {
+        this.Name = name;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
     }
 
     public int getMobile() {
