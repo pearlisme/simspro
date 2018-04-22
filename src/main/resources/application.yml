@@ -18,7 +18,7 @@ spring:
       path: /h2
       settings:
         trace: false
-        web-allow-others: false
+        web-allow-others: true
 
 # ALWAYS, NEVER or DETECT
 #FATAL and ERROR – Red
