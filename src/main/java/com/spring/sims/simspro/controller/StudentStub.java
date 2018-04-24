@@ -1,9 +1,13 @@
 package com.spring.sims.simspro.controller;
 
 import com.spring.sims.simspro.model.Student;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.*;
 
+@RestController
+@RequestMapping(value = "/mock")
 public class StudentStub {
 
 
@@ -19,6 +23,7 @@ public class StudentStub {
         students.put(4L,s4);
     }
 
+    @RequestMapping(value = "/students")
     public static List<Student> list(){
         return new ArrayList<Student>(students.values());
     }
