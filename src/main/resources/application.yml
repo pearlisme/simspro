@@ -1,14 +1,11 @@
+# PROFILE ACTIVATOR
+
 spring:
   profiles:
-    active:  development
+    active:  production
 
 ---
 # DEVELOPMENT PROFILE RELATED CONFIGURATION
-
-
-# H2 Web Console (H2ConsoleProperties)
-
-# -Dspring.profiles.active=test
 
 spring:
   profiles: development
@@ -19,40 +16,119 @@ spring:
       settings:
         trace: false
         web-allow-others: true
-
-# ALWAYS, NEVER or DETECT
-#FATAL and ERROR – Red
-#WARN – Yellow
-#INFO, DEBUG and TRACE – Green
-
     ansi:
         enabled: ALWAYS
-# Datasource
   datasource:
     name: sa
     password: studio
     driver-class-name: org.h2.Driver
     url: jdbc:h2:file:~/sims
+    hikari:
+      jdbc-url: jdbc:h2:file:~/sims
+      driver-class-name: org.h2.Driver
+#    type: org.apache.tomcat.jdbc.pool.DataSource
+    username: sa
+  tomcat:
+    validation-query: SELECT 1
+    test-while-idle: true
+    max-active: 10
+    max-idle: 8
+    max-wait: 10000
+    min-evictable-idle-time-millis: 1000
+    min-idle: 8
+    time-between-eviction-runs-millis: 1
+  flyway:
+    baseline-on-migrate: true
+    user: sa
+    password: studio
+    schemas: sims
+    url: jdbc:h2:file:~/sims
+    enabled: false
+
+#    locations: filesystem:db/migration
+#    url: jdbc:h2:file:~/sims
+#    user: sa
+#    password: studio
+#    driver-class-name: org.h2.
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+#    properties:
+#      hibernate:
+#        dialect: org.h2.Driver
+  thymeleaf:
+    enabled: true
+    cache: true
+    prefix: classpath:/templates/
+    suffix: .html
+
+
+#spring:
+#  queries:
+#    users-query: select email, password, active from user where email=?
+#    roles-query: select u.email, r.role from user u inner join user_role ur on(u.user_id=ur.user_id) inner join role r on(ur.role_id=r.role_id) where u.email=?
 
 
 server:
   port: 9000
 logging:
-#  file: logs/application-debug.log
+  file: logs/application-debug.log
   pattern:
     console: "%d %-5level %logger : %msg%n"
     file: "%d %-5level [%thread] %logger : %msg%n"
   level:
-    org.springframework.web: DEBUG
+    org.springframework.web: error
     org.hibernate: ERROR
 
 
+# PRODUCTION PROFILE RELATED CONFIGURATION
 ---
 spring:
   profiles: production
+
+server:
+  port: 80
   h2:
     console:
       enabled: true
       path: /h2
-server:
-  port: 80
+      settings:
+        trace: false
+        web-allow-others: true
+    ansi:
+        enabled: ALWAYS
+  datasource:
+    name: sa
+    password: studio
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:file:~/sims
+    hikari:
+      jdbc-url: jdbc:h2:file:~/sims
+      driver-class-name: org.h2.Driver
+    username: sa
+  tomcat:
+    validation-query: SELECT 1
+    test-while-idle: true
+    max-active: 10
+    max-idle: 8
+    max-wait: 10000
+    min-evictable-idle-time-millis: 1000
+    min-idle: 8
+    time-between-eviction-runs-millis: 1
+  flyway:
+    baseline-on-migrate: true
+    user: sa
+    password: studio
+    schemas: sims
+    url: jdbc:h2:file:~/sims
+    enabled: false
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  thymeleaf:
+    enabled: true
+    cache: true
+    prefix: classpath:/templates/
+    suffix: .html

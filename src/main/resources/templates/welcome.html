@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8" />
     <title>Hotel Booking App</title>
-    <link th:if="${mode == 'development'}" rel="stylesheet" href="bootstrap.css" th:href="@{/bootstrap.css}" />
+    <link th:if="${mode == 'development'}" rel="stylesheet" href="../static/js/bootstrap.css" th:href="@{/static/js/bootstrap.css}" />
     <link th:if="${mode == 'production'}" rel="stylesheet" href="../static/bootstrap.min.css" th:href="@{/bootstrap.min.css}" />
     <script type="text/javascript" src="/static/angular.min.js" th:src="@{/angular.min.js}"></script>
-    <script type="text/javascript" src="/static/app/app.module.js" th:src="@{/app/app.module.js}"></script>
+    <script type="text/javascript" src="/static/app/app.module.js" th:src="@{/static/app/app.module.js}"></script>
     <script type="text/javascript" src="/static/app/bookings.controller.js" th:src="@{/app/bookings.controller.js}"></script>
 </head>
 <body ng-app="app" ng-controller="StudentController as vm">

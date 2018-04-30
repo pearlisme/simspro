@@ -13,7 +13,7 @@
         vm.getAll = getAll;
         vm.getStudent = getStudent;
         vm.deleteStudent = deleteStudent;
-        ''
+        '';
 
         init();
 

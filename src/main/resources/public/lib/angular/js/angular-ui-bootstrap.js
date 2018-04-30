@@ -3122,7 +3122,7 @@ angular.module('ui.bootstrap.tabs', [])
         });
       };
     };
-  </file>
+ </file>
 </example>
  */
 
